@@ -1,0 +1,35 @@
+body {
+  justify-content: center;
+  display: flex;
+}
+
+h1 {
+  text-align: center;
+}
+
+.box {
+  width: 380px;
+  height: 23%;
+  text-align: center;
+  background: linear-gradient(120deg, #f7b2da, #e5bff5);
+  color: black;
+  border-radius: 25px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  transition: all 0.2s linear;
+
+}
+
+.box h1 {
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.box p {
+  font-size: 16px;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(28, 28, 28, 0.3);
+}

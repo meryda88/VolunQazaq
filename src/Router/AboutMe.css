@@ -1,0 +1,53 @@
+.about-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    background: linear-gradient(to right, #fdfcfb, #e2d1c3);
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .about-card {
+    background-color: #fff;
+    padding: 40px;
+    max-width: 700px;
+    border-radius: 20px;
+    box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+    text-align: left;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .about-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .about-card h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .about-card p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .about-card button {
+    margin-top: 20px;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 10px;
+    background-color: #408742;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .about-card button:hover {
+    background-color: #38793b;
+  }
+  

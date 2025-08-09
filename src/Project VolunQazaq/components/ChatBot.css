@@ -1,0 +1,149 @@
+/* ChatBot.css */
+.chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .chat-toggle {
+    background-color: #0d3b66;
+    border: none;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .chat-toggle:hover {
+    background-color: #27517a;
+  }
+  
+  .chat-box {
+    width: 340px;
+    max-height: 500px;
+    background: white;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+  }
+  
+  .chat-header {
+    background-color: #0d3b66;
+    color: white;
+    padding: 12px;
+    font-weight: bold;
+    position: relative;
+    text-align: center;
+  }
+  
+  .chat-close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: none;
+    border: none;
+    font-size: 15px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .chat-messages {
+    flex: 1;
+    padding: 12px;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+  }
+  
+  .chat-message {
+    margin-bottom: 12px;
+    padding: 10px;
+    background: #eef1f5;
+    border-radius: 8px;
+  }
+  
+  .chat-q {
+    font-weight: 500;
+    color: #0d3b66;
+  }
+  
+  .chat-a {
+    margin-top: 6px;
+    color: #222;
+  }
+  
+  .chat-typing {
+    padding: 8px;
+    font-style: italic;
+    color: #666;
+  }
+  
+  .chat-input {
+    display: flex;
+    border-top: 1px solid #ddd;
+  }
+  
+  .chat-input input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    font-size: 14px;
+    outline: none;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .chat-input button {
+    padding: 10px 14px;
+    background-color: #0d3b66;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .chat-input button:hover {
+    background-color: #27517a;
+  }
+  
+  .chat-footer {
+    text-align: center;
+    padding: 8px;
+    border-top: 1px solid #eee;
+    background-color: #f2f2f2;
+  }
+  
+  .clear-button {
+    background: none;
+    border: none;
+    color: #0d3b66;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  
+  .clear-button:hover {
+    color: #3e5c90;
+  }
+  
+  /* Мобильная адаптация */
+  @media (max-width: 480px) {
+    .chat-box {
+      width: 90vw;
+      right: 5%;
+      bottom: 80px;
+    }
+  
+    .chat-toggle {
+      width: 50px;
+      height: 50px;
+    }
+  }
+  

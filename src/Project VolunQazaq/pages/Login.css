@@ -1,0 +1,137 @@
+/* Контейнер фиксируется и всегда по центру */
+.login-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #f4f6f9, #d9e2ec);
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  overflow: hidden;
+}
+
+.login-card {
+  background-color: #ffffff;
+  padding: 3rem 3rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 420px;
+  transition: all 0.3s ease;
+}
+
+.login-card:hover {
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+.login-form h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #1a1a1a;
+  font-size: 1.9rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.login-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccd5e0;
+  border-radius: 8px;
+  margin-bottom: 1.2rem;
+  font-size: 1rem;
+  background-color: #f8fafc;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  box-sizing: border-box;
+}
+
+.login-form input:focus {
+  outline: none;
+  border-color: #4675d1;
+  box-shadow: 0 0 0 3px rgba(70, 117, 209, 0.2);
+  background-color: #fff;
+}
+
+.login-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #3d66c1, #3157b1);
+  color: white;
+  border: none;
+  padding: 0.85rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  letter-spacing: 0.4px;
+}
+
+.login-btn:hover {
+  background: linear-gradient(135deg, #2d52a3, #27489b);
+  transform: scale(1.015);
+}
+
+.login-error {
+  color: #c0392b;
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.88rem;
+  text-align: center;
+  background-color: #fdecea;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+}
+
+/* ✅ Адаптивность */
+@media (max-width: 768px) {
+  .login-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .login-form h2 {
+    font-size: 1.7rem;
+  }
+
+  .login-form input {
+    font-size: 0.95rem;
+    padding: 0.7rem 0.9rem;
+  }
+
+  .login-btn {
+    font-size: 0.95rem;
+    padding: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-card {
+    padding: 1.5rem 1.2rem;
+  }
+
+  .login-form h2 {
+    font-size: 1.5rem;
+  }
+
+  .login-form input {
+    font-size: 0.9rem;
+  }
+
+  .login-btn {
+    font-size: 0.95rem;
+    padding: 0.75rem;
+  }
+}

@@ -1,0 +1,80 @@
+.flight-list-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #fffbfb;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(139, 69, 19, 0.15);
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .title {
+    font-size: 30px;
+    color: #7a2f13;
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: bold;
+  }
+  
+  .search-bar {
+    width: 97%;
+    padding: 12px 16px;
+    margin-bottom: 25px;
+    border: 1px solid #d5c2b3;
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: #fffdfc;
+  }
+  
+  .flights {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+  }
+  
+  .flight-card {
+    border: 1px solid #802424;
+    border-radius: 12px;
+    padding: 18px;
+    background-color: #fcf7f7;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .flight-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(165, 85, 42, 0.2);
+  }
+  
+  .flight-card p {
+    margin: 8px 0;
+    font-size: 15px;
+    color: #5b3e35;
+    line-height: 1.5;
+  }
+  
+  .flight-list button {
+    padding: 12px 20px;
+    background-color: #802424;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 15px;
+  }
+  
+  .flight-list button:hover {
+    background-color: #5c1c1c;
+    transform: scale(1.05);
+  }
+  
+  .delete-button {
+    background-color: #b93c3c;
+  }
+  
+  .delete-button:hover {
+    background-color: #8a2d2d;
+  }
+  

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './To_do_list.css';
 
 function To_do_list() {
@@ -6,16 +6,32 @@ function To_do_list() {
   const [tasks, setTasks] = useState([{ task: "", completed: false }]);
   const [value, setValue] = useState("");
   const [deadline, setDeadline] = useState("")
+  const [effect, setEffect] = useState('');
 
+  useEffect(()=> {
+    if(effect === 'addTask') {
+      alert('Тапсырма қосылды')
+    }
+    else if(effect === 'handleChange') {
+      alert('Тапсырманың күйі өзгерді')
+    }
+    else if(effect === 'handleRemove') {
+      alert('Тапсырма жойылды')
+    }
+  }, [tasks])
+
+  localStorage.setItem('tasks', JSON.stringify('tasks'))
   const addTask = () => {
     if (value.trim() === "") return; 
     setTasks([...tasks, { task: value.trim(), completed: false, deadline}]);
     setValue("");
     setDeadline("");
+    setEffect('addTask');
   };
 
   const handleRemove = (id) => {
     setTasks(tasks.filter((_, index) => index !== id));
+    setEffect('handleRemove');
   };
 
   const handleChange = (id) => {
@@ -24,6 +40,7 @@ function To_do_list() {
         index === id ? { ...task, completed: !task.completed } : task
       )
     );
+    setEffect('handleChange');
   };
 
   const filteredTasks = tasks.filter((task) => {

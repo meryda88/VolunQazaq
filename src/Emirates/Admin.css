@@ -1,0 +1,61 @@
+body {
+  background: rgb(239, 241, 245);
+  font-family: 'Segoe UI', sans-serif;
+  padding: 40px;
+}
+
+.flight-form-container {
+  max-width: 450px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(139, 69, 19, 0.15);
+}
+
+.flight-form-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #7a2f13;
+  font-size: 24px;
+}
+
+.flight-form-container input {
+  width: 94%;
+  padding: 12px;
+  margin-bottom: 14px;
+  border: 1px solid #c6b5a3;
+  border-radius: 10px;
+  background-color: #ffffff;
+  font-size: 14px;
+}
+
+.flight-form-container input:focus {
+  outline: none;
+  border-color: #a94442;
+  background-color: #fffdfc;
+}
+
+.flight-form-container button {
+  width: 100%;
+  padding: 12px;
+  background-color: #802424;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 10px;
+}
+
+.flight-form-container button:hover {
+  background-color: #5c1c1c;
+}
+
+.flight-form-container p {
+  text-align: center;
+  color: #5c1c1c;
+  font-weight: 500;
+  margin-top: 10px;
+}

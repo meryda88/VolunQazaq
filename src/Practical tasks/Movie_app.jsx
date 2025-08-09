@@ -1,39 +1,55 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './Movie_app.css'
 
 function Movie_app() {
-    const [movies, setMovies] = useState(() => JSON.parse(localStorage.getItem('movies')) || []);
+    const [movies, setMovies] = useState([]);
     const [form, setForm] = useState({
       title: '',
       description: '',
       poster: '',
     });
+    const [effect, setEffect] = useState('');
+
+    useEffect(() => {
+      if(effect === 'add') {
+        alert('Фильм қосылды')
+      }
+      else if(effect === 'remove') {
+        alert('Фильм жойылды')
+      }
+      else if(effect === 'toggle') {
+        alert('Фильмнің күйі өзгерді')
+      }
+    }, [effect                                                                                                                                                  ])
 
 const handleAddMovie = () => {
     if (form.title && form.description && form.poster) { 
       setMovies([...movies, { ...form, id: Date.now(), watched: false},
       ]);
+      setEffect('add');
     setMovies(newMovies);
     localStorage.setItem('movies', JSON.stringify(newMovies));
-    setForm({title: '', description: '', poster: ''})
+    setForm({title: '', description: '', poster: ''});
   }
 };
 
 const handleRemove = (id) => {
   setMovies(movies.filter((movie) => movie.id !==id));
+  setEffect('remove')
 };
 
 const handleChange = (e) => {
   setForm({...form, [e.target.name]: e.target.value});
 };
 
-const handleToggleWathced = (id) => {
+const handleToggleWatched = (id) => {
   setMovies(
-    movies.map((map) =>
+    movies.map((movie) =>
     movie.id === id 
     ? {...movie, watched: !movie.watched} : movie
     )
   );
+  setEffect('toggle')
 };
 
   return (
@@ -47,8 +63,9 @@ const handleToggleWathced = (id) => {
     </div>
 
     <div className="movie-list">
-        {movies.map((movie) => (
-            <div className="movie-card" key={movie.id}>
+        {movies.map((movie) =>{
+          return( 
+          <div className="movie-card" key={movie.id}>
             <h3>{movie.title}</h3>
             <p>{movie.description}</p>
                 {movie.poster && <img src={movie.poster} alt="Poster" />}
@@ -63,7 +80,10 @@ const handleToggleWathced = (id) => {
               </label>
                 <button onClick={() => handleRemove(movie.id)}>Удалить</button>
             </div>
-        ))}
+        )
+        })
+        
+           }
     </div>
 </div>
 )}

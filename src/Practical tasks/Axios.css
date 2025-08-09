@@ -1,0 +1,82 @@
+body {
+  background: linear-gradient(to right, #fbeee6, #fff5f0);
+  font-family: 'Segoe UI', sans-serif;
+  padding: 40px;
+}
+
+.container {
+  max-width: 420px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(139, 69, 19, 0.15);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #7a2f13;
+  font-size: 24px;
+}
+
+input {
+  width: 94%;
+  padding: 12px;
+  margin-bottom: 14px;
+  border: 1px solid #c6b5a3;
+  border-radius: 10px;
+  background-color: #fff8f5;
+  font-size: 14px;
+}
+
+select{
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 14px;
+  border: 1px solid #c6b5a3;
+  border-radius: 10px;
+  background-color: #fff8f5;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #a94442;
+  background-color: #fffdfc;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #802424;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #5c1c1c;
+}
+
+.role-selection {
+  margin-top: 10px;
+}
+
+.role-selection label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #5b3e35;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: -10px;
+  margin-bottom: 8px;
+}

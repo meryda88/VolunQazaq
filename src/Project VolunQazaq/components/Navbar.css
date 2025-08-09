@@ -1,0 +1,123 @@
+/* === ОБЩИЙ НАВБАР === */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0d3b66; /* ← обновлённый цвет */
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+}
+
+/* === ЛОГОТИП === */
+.navbar-logo a {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navbar-logo a:hover {
+  color: #ffd369;
+}
+
+/* === ССЫЛКИ В ДЕСКТОПЕ === */
+.navbar-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.navbar-links li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar-links li a:hover {
+  color: #ffd369;
+}
+
+/* === ГАМБУРГЕР-КНОПКА === */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.bar {
+  width: 24px;
+  height: 3px;
+  background-color: #ffffff;
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+}
+
+.close-icon {
+  font-size: 2rem;
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+/* === МОБИЛЬНАЯ ВЕРСИЯ === */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .navbar-links {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 280px;
+    background-color: #0d3b66; /* ← обновлённый цвет фона меню */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 1.5rem;
+    transform: translateX(100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+    box-shadow: -3px 0 15px rgba(0, 0, 0, 0.25);
+  }
+
+  .navbar-links.active {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .navbar-links li {
+    margin: 1.6rem 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar-links li a {
+    color: #ffffff;
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .navbar-links li a:hover {
+    color: #ffd369;
+  }
+
+  .close-icon:hover {
+    color: #ffd369;
+  }
+}

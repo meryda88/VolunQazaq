@@ -1,0 +1,23 @@
+.page-navigation {
+    margin-top: 40px;
+    text-align: center;
+  }
+  
+  .page-navigation button {
+    padding: 12px 24px;
+    margin: 0 8px;
+    background-color: #444444;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: 'Segoe UI', sans-serif;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .page-navigation button:hover {
+    background-color: #2e2c2c;
+    transform: scale(1.05);
+  }
+  

@@ -1,0 +1,340 @@
+/* Основной блок */
+.main {
+  text-align: center;
+  background-color: #f5f8fc;
+  padding: 7rem 1rem 5rem;
+  margin-bottom: 2rem;
+  font-family: 'Segoe UI', sans-serif;
+  height: 300px;
+}
+
+.main h1 {
+  font-size: 2.4rem;
+  margin-bottom: 1.2rem;
+  color: #1d2d50;
+  font-weight: 600;
+}
+
+.main p {
+  font-size: 1.15rem;
+  margin-bottom: 2rem;
+  color: #2e3d60;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.main-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.25s ease-in-out;
+  display: inline-block;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+/* Жёлтая кнопка */
+.btn1 {
+  background-color: #f4c10a;
+  color: #fff;
+}
+
+.btn1:hover {
+  background-color: #e0b009;
+  transform: translateY(-2px);
+}
+
+.btn2 {
+  background-color: #ffffff;
+  color: #0d3b66;
+  border: 1.5px solid #0d3b66;
+}
+
+.btn2:hover {
+  background-color: #f1f6ff;
+  transform: translateY(-2px);
+}
+
+.events {
+  margin-bottom: 2.5rem;
+  margin-top: 3rem;
+}
+
+.events h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #173270;
+  font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+  margin-bottom: 1.5rem;
+}
+
+.event-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.event-card {
+  width: 350px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  text-align: left;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.event-card:hover {
+  transform: scale(1.02);
+}
+
+.event-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid #ccc;
+}
+
+.event-content {
+  padding: 1rem 1.2rem;
+}
+
+.event-content h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.8rem;
+  color: #173270;
+  font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+}
+
+.event-content p,
+.event-content ul {
+  margin: 4px 0;
+  color: #333333;
+  font-size: 0.90rem;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.event-motivation {
+  font-style: italic;
+  margin-top: 10px;
+  color: #555;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.modal-content {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 1rem;
+  max-width: 550px;
+  width: 100%;
+  position: relative;
+  font-family: 'Segoe UI', sans-serif;
+  color: #1d2d50;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  /* Убираем скролл */
+  overflow-y: visible;
+  max-height: none;
+}
+
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  margin-left: 5rem;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: #1d2d50;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.close-btn:hover {
+  color: #13203d;
+}
+
+.modal-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.modal-buttons .btn1 {
+  background-color: #f4c10a;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.modal-buttons .btn1:hover {
+  background-color: #e0b009;
+  transform: translateY(-2px);
+}
+
+/* Анимация */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Секция заявок */
+.apply-section {
+  background: #f0f6fb;
+  padding: 2rem 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .modal-content {
+    max-width: 90%;
+    padding: 1.8rem 1.2rem;
+  }
+
+  .modal-image {
+    height: 180px;
+  }
+
+  .modal-buttons .btn1 {
+    width: 100%;
+    padding: 1rem 0;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-content {
+    padding: 1.5rem;
+  }
+
+  .modal-image {
+    height: 140px;
+  }
+
+  .modal-buttons .btn1 {
+    width: 100%;
+    padding: 1rem 0;
+    font-size: 1rem;
+  }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .main h1 {
+    font-size: 1.8rem;
+  }
+
+  .main-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .btn {
+    width: auto;
+  }
+
+  .event-cards {
+    flex-direction: column;
+    gap: 1.4rem;
+    padding: 0 0.5rem;
+  }
+
+  .event-card {
+    width: 100%;
+  }
+
+  .modal-content {
+    max-width: 90%;
+    padding: 1.8rem 1.2rem;
+  }
+
+  .modal-image {
+    height: 180px;
+  }
+
+  .modal-buttons .btn1 {
+    width: 100%;
+    padding: 1rem 0;
+    font-size: 1.1rem;
+  }
+
+  .timeline-content h4 {
+    font-size: 1rem;
+  }
+
+  .timeline-content p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-content {
+    padding: 1.5rem;
+  }
+
+  .modal-image {
+    height: 140px;
+  }
+
+  .modal-buttons .btn1 {
+    width: 100%;
+    padding: 1rem 0;
+    font-size: 1rem;
+  }
+
+  .main-buttons{
+    gap: 0.1rem;
+  }
+}

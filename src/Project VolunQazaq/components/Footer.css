@@ -1,0 +1,15 @@
+.footer {
+    background-color: #0d3b66;
+    color: white;
+    text-align: center;
+    padding: 1.2rem 0;
+    font-size: 0.9rem;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  @media (max-width: 768px) {
+    .footer {
+      font-size: 0.8rem;
+    }
+  }
+  

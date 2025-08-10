@@ -163,7 +163,6 @@ const AdminPanel = () => {
         <h1>Админ панель</h1>
         <button className="logout-btn" onClick={handleLogout}>Выйти</button>
       </div>
-      {/* Переключатель вкладок */}
       <div className="tabs">
         <span 
           className={activeTab === "events" ? "active" : ""} 
@@ -180,7 +179,6 @@ const AdminPanel = () => {
         </span>
       </div>
 
-      {/* Вкладка событий */}
       {activeTab === "events" && (
         <section className="admin-section">
           <div className="admin-header">
@@ -239,7 +237,6 @@ const AdminPanel = () => {
         </section>
       )}
 
-      {/* Вкладка заявок */}
       {activeTab === "requests" && (
         <section className="admin-section">
           <h2>Заявки на мероприятия</h2>

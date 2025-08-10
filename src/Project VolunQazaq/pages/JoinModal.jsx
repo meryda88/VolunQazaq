@@ -49,7 +49,6 @@ const JoinModal = ({ eventId, eventTitle, onClose }) => {
     }
   };
 
-  // Таймер для авто-закрытия через 6 секунд после успешной отправки
   useEffect(() => {
     if (submitted) {
       const timer = setTimeout(() => {
@@ -62,7 +61,6 @@ const JoinModal = ({ eventId, eventTitle, onClose }) => {
   return (
     <div className="modal-overlay">
       <div className="modal-content">
-        {/* Кнопка закрытия */}
         <button className="close-btn" onClick={onClose}>×</button>
 
         {!submitted ? (

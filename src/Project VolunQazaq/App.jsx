@@ -27,7 +27,6 @@ function App() {
     }
   }, []);
 
-  // Көрсетпеу керек беттер
   const hideNavbarFooterRoutes = ['/login', '/admin'];
   const hideNavbarFooter = hideNavbarFooterRoutes.includes(location.pathname);
 

@@ -1,9 +1,8 @@
-/* === ОБЩИЙ НАВБАР === */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #0d3b66; /* ← обновлённый цвет */
+  background-color: #0d3b66;
   padding: 1rem 2rem;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
   position: sticky;
@@ -12,7 +11,6 @@
   font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
 }
 
-/* === ЛОГОТИП === */
 .navbar-logo a {
   font-size: 1.8rem;
   font-weight: 600;
@@ -25,7 +23,6 @@
   color: #ffd369;
 }
 
-/* === ССЫЛКИ В ДЕСКТОПЕ === */
 .navbar-links {
   display: flex;
   gap: 2rem;
@@ -44,7 +41,6 @@
   color: #ffd369;
 }
 
-/* === ГАМБУРГЕР-КНОПКА === */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -68,7 +64,6 @@
   transition: color 0.3s ease;
 }
 
-/* === МОБИЛЬНАЯ ВЕРСИЯ === */
 @media (max-width: 768px) {
   .hamburger {
     display: flex;

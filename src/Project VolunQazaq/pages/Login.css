@@ -1,4 +1,3 @@
-/* Контейнер фиксируется и всегда по центру */
 .login-container {
   position: fixed;
   top: 50%;
@@ -96,7 +95,6 @@
   border-radius: 6px;
 }
 
-/* ✅ Адаптивность */
 @media (max-width: 768px) {
   .login-card {
     padding: 2rem 1.5rem;

@@ -35,7 +35,6 @@ export default function AboutPage() {
   };
 
   useEffect(() => {
-    // Показать FAQ с анимацией через 300ms после загрузки страницы
     const timer = setTimeout(() => setShowFaq(true), 300);
     return () => clearTimeout(timer);
   }, []);

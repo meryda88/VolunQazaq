@@ -9,7 +9,7 @@ const Events = () => {
   const [selectedCity, setSelectedCity] = useState("");
   const [events, setEvents] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState(null);
-  const [showJoinModal, setShowJoinModal] = useState(false); // ✅ переместила сюда
+  const [showJoinModal, setShowJoinModal] = useState(false); 
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -62,19 +62,17 @@ const Events = () => {
         </div>
       </section>
 
-      {/* ✅ Модалка регистрации на событие */}
       {showJoinModal && selectedEvent && (
         <JoinModal
           eventId={selectedEvent.id}
           eventTitle={selectedEvent.title}
           onClose={() => {
             setShowJoinModal(false);
-            setSelectedEvent(null); // Закрываем также и окно ивента
+            setSelectedEvent(null); 
           }}
         />
       )}
 
-      {/* ✅ Модалка просмотра ивента */}
       {selectedEvent && !showJoinModal && (
         <div className="modal-overlay" onClick={() => setSelectedEvent(null)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>

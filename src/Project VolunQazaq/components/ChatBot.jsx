@@ -13,6 +13,12 @@ const ChatBot = () => {
     const savedChat = localStorage.getItem('volunteerChat');
     if (savedChat) {
       setChat(JSON.parse(savedChat));
+    } else {
+      // Приветственные сообщения
+      setChat([
+        { question: null, answer: 'Привет! Я могу помочь тебе с вопросами о волонтерстве, найти мероприятия и дать полезную информацию.', system: true },
+        { question: null, answer: 'Например, можешь спросить: "Что ты умеешь?" или "Какие есть события?".', system: true }
+      ]);
     }
   }, []);
 
@@ -29,21 +35,38 @@ const ChatBot = () => {
   const ask = async () => {
     if (!question.trim()) return;
 
-    const isVolunteerQuestion = /волонтер|волонтёр|помощь|добровол/i.test(question);
+    const lowerQ = question.toLowerCase();
+    const isVolunteerQuestion =
+      /волонтер|волонтёр|помощь|добровол/i.test(question) ||
+      /что ты умеешь|какие у тебя функции/i.test(lowerQ);
 
     setChat([...chat, { question, answer: isVolunteerQuestion ? '...' : '' }]);
     setLoading(true);
     setQuestion('');
 
+    if (/что ты умеешь|какие у тебя функции/i.test(lowerQ)) {
+      setTimeout(() => {
+        setChat((prev) => {
+          const newChat = [...prev];
+          newChat[newChat.length - 1].answer =
+            'Я могу ответить на вопросы о волонтерстве, помочь найти события и мероприятия, а также поделиться полезной информацией.';
+          return newChat;
+        });
+        setLoading(false);
+      }, 800);
+      return;
+    }
+
     if (!isVolunteerQuestion) {
       setTimeout(() => {
         setChat((prev) => {
           const newChat = [...prev];
-          newChat[newChat.length - 1].answer = 'Извините, я могу отвечать только на вопросы о волонтерстве.';
+          newChat[newChat.length - 1].answer =
+            'Извините, я могу отвечать только на вопросы о волонтерстве.';
           return newChat;
         });
         setLoading(false);
-      }, 1000);
+      }, 800);
       return;
     }
 
@@ -102,8 +125,11 @@ const ChatBot = () => {
 
           <div className="chat-messages">
             {chat.map((entry, idx) => (
-              <div key={idx} className="chat-message">
-                <p className="chat-q">Вы: {entry.question}</p>
+              <div
+                key={idx}
+                className={entry.system ? 'chat-system' : 'chat-message'}
+              >
+                {entry.question && <p className="chat-q">Вы: {entry.question}</p>}
                 <p className="chat-a">Бот: {entry.answer}</p>
               </div>
             ))}

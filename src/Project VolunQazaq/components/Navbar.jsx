@@ -6,25 +6,32 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
+  const closeMenu = () => setIsOpen(false);
 
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <Link to="/">VolunQazaq</Link>
+        <Link to="/" onClick={closeMenu}>VolunQazaq</Link>
       </div>
 
       <div className="hamburger" onClick={toggleMenu}>
-        <span className="bar"></span>
-        <span className="bar"></span>
-        <span className="bar"></span>
+        {!isOpen ? (
+          <>
+            <span className="bar"></span>
+            <span className="bar"></span>
+            <span className="bar"></span>
+          </>
+        ) : (
+          <span className="close-icon">&times;</span>
+        )}
       </div>
 
       <ul className={`navbar-links ${isOpen ? 'active' : ''}`}>
-        <li><Link to="/">Главная</Link></li>
-        <li><Link to="/about">О нас</Link></li>
-        <li><Link to="/events">События</Link></li>
-        <li><Link to="/contacts">Контакты</Link></li>
-        <li><Link to="/login">Войти</Link></li>
+        <li><Link to="/" onClick={closeMenu}>Главная</Link></li>
+        <li><Link to="/about" onClick={closeMenu}>О нас</Link></li>
+        <li><Link to="/events" onClick={closeMenu}>События</Link></li>
+        <li><Link to="/contacts" onClick={closeMenu}>Контакты</Link></li>
+        <li><Link to="/login" onClick={closeMenu}>Войти</Link></li>
       </ul>
     </nav>
   );

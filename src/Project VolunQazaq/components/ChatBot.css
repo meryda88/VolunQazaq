@@ -133,6 +133,16 @@
     color: #3e5c90;
   }
   
+  .chat-system {
+    margin-bottom: 12px;
+    padding: 10px;
+    background: #e0f3ff; 
+    border-left: 4px solid #0d3b66;
+    border-radius: 8px;
+    font-style: italic;
+    color: #0d3b66;
+  }
+  
   /* Мобильная адаптация */
   @media (max-width: 480px) {
     .chat-box {

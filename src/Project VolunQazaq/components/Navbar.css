@@ -74,39 +74,41 @@
     display: flex;
   }
 
-  .navbar-links {
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100vh;
-    width: 280px;
-    background-color: #0d3b66; /* ← обновлённый цвет фона меню */
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 3rem 1.5rem;
-    transform: translateX(100%);
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.4s ease;
-    box-shadow: -3px 0 15px rgba(0, 0, 0, 0.25);
-  }
-
-  .navbar-links.active {
-    transform: translateX(0);
-    opacity: 1;
-    visibility: visible;
-  }
-
-  .navbar-links li {
-    margin: 1.6rem 0;
-    width: 100%;
-    text-align: center;
+  @media (max-width: 768px) {
+    .navbar-links {
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: auto;
+      max-height: 80vh;
+      width: 280px;
+      background-color: #0d3b66;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 1.5rem;
+      transform: translateX(100%);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s ease;
+      box-shadow: -3px 0 15px rgba(0, 0, 0, 0.25);
+    }
+  
+    .navbar-links.active {
+      transform: translateX(0);
+      opacity: 1;
+      visibility: visible;
+    }
+  
+    .navbar-links li {
+      margin: 0.8rem 0;
+      width: 100%;
+      text-align: left;
+    }
   }
 
   .navbar-links li a {
     color: #ffffff;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: 600;
     letter-spacing: 0.5px;
     text-decoration: none;
@@ -120,4 +122,14 @@
   .close-icon:hover {
     color: #ffd369;
   }
+}
+
+.close-icon {
+  font-size: 2rem;
+  color: #ffffff;
+  cursor: pointer;
+  line-height: 1;
+}
+.close-icon:hover {
+  color: #ffd369;
 }

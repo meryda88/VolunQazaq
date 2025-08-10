@@ -4,7 +4,13 @@ import './ChatBot.css';
 
 const ChatBot = () => {
   const [question, setQuestion] = useState('');
-  const [chat, setChat] = useState([]);
+  const [chat, setChat] = useState([
+    {
+      answer:
+        'Привет! Я ваш помощник по вопросам волонтерства. Могу рассказать, где найти мероприятия, как стать волонтером и многое другое.',
+      system: true
+    }
+  ]);
   const [isOpen, setIsOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const inputRef = useRef(null);
@@ -13,12 +19,6 @@ const ChatBot = () => {
     const savedChat = localStorage.getItem('volunteerChat');
     if (savedChat) {
       setChat(JSON.parse(savedChat));
-    } else {
-      // Приветственные сообщения
-      setChat([
-        { question: null, answer: 'Привет! Я могу помочь тебе с вопросами о волонтерстве, найти мероприятия и дать полезную информацию.', system: true },
-        { question: null, answer: 'Например, можешь спросить: "Что ты умеешь?" или "Какие есть события?".', system: true }
-      ]);
     }
   }, []);
 
@@ -35,27 +35,12 @@ const ChatBot = () => {
   const ask = async () => {
     if (!question.trim()) return;
 
-    const lowerQ = question.toLowerCase();
     const isVolunteerQuestion =
-      /волонтер|волонтёр|помощь|добровол/i.test(question) ||
-      /что ты умеешь|какие у тебя функции/i.test(lowerQ);
+      /волонтер|волонтёр|помощь|добровол/i.test(question);
 
     setChat([...chat, { question, answer: isVolunteerQuestion ? '...' : '' }]);
     setLoading(true);
     setQuestion('');
-
-    if (/что ты умеешь|какие у тебя функции/i.test(lowerQ)) {
-      setTimeout(() => {
-        setChat((prev) => {
-          const newChat = [...prev];
-          newChat[newChat.length - 1].answer =
-            'Я могу ответить на вопросы о волонтерстве, помочь найти события и мероприятия, а также поделиться полезной информацией.';
-          return newChat;
-        });
-        setLoading(false);
-      }, 800);
-      return;
-    }
 
     if (!isVolunteerQuestion) {
       setTimeout(() => {
@@ -66,7 +51,7 @@ const ChatBot = () => {
           return newChat;
         });
         setLoading(false);
-      }, 800);
+      }, 1000);
       return;
     }
 
@@ -81,7 +66,9 @@ const ChatBot = () => {
         }
       );
 
-      let reply = res.data.candidates?.[0]?.content?.parts?.[0]?.text || 'Ответ не получен.';
+      let reply =
+        res.data.candidates?.[0]?.content?.parts?.[0]?.text ||
+        'Ответ не получен.';
       reply = reply.replace(/\*/g, '').trim();
 
       setChat((prev) => {
@@ -93,7 +80,8 @@ const ChatBot = () => {
       console.error(err);
       setChat((prev) => {
         const newChat = [...prev];
-        newChat[newChat.length - 1].answer = 'Произошла ошибка. Повторите позже.';
+        newChat[newChat.length - 1].answer =
+          'Произошла ошибка. Повторите позже.';
         return newChat;
       });
     } finally {
@@ -102,15 +90,31 @@ const ChatBot = () => {
   };
 
   const clearChat = () => {
-    setChat([]);
+    setChat([
+      {
+        answer:
+          'Привет! Я ваш помощник по вопросам волонтерства. Могу рассказать, где найти мероприятия, как стать волонтером и многое другое.',
+        system: true
+      }
+    ]);
     localStorage.removeItem('volunteerChat');
   };
 
   return (
     <div className="chatbot-container">
       {!isOpen && (
-        <button className="chat-toggle" onClick={() => setIsOpen(true)} title="Открыть чат">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" fill="white" viewBox="0 0 24 24">
+        <button
+          className="chat-toggle"
+          onClick={() => setIsOpen(true)}
+          title="Открыть чат"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24"
+            width="24"
+            fill="white"
+            viewBox="0 0 24 24"
+          >
             <path d="M2 2v20l4-4h16V2H2zm16 11H6v-2h12v2z" />
           </svg>
         </button>
@@ -120,7 +124,9 @@ const ChatBot = () => {
         <div className="chat-box">
           <div className="chat-header">
             Чат-помощник
-            <button className="chat-close" onClick={() => setIsOpen(false)}>✕</button>
+            <button className="chat-close" onClick={() => setIsOpen(false)}>
+              ✕
+            </button>
           </div>
 
           <div className="chat-messages">
@@ -129,7 +135,9 @@ const ChatBot = () => {
                 key={idx}
                 className={entry.system ? 'chat-system' : 'chat-message'}
               >
-                {entry.question && <p className="chat-q">Вы: {entry.question}</p>}
+                {entry.question && (
+                  <p className="chat-q">Вы: {entry.question}</p>
+                )}
                 <p className="chat-a">Бот: {entry.answer}</p>
               </div>
             ))}
@@ -149,7 +157,9 @@ const ChatBot = () => {
           </div>
 
           <div className="chat-footer">
-            <button className="clear-button" onClick={clearChat}>Очистить чат</button>
+            <button className="clear-button" onClick={clearChat}>
+              Очистить чат
+            </button>
           </div>
         </div>
       )}
